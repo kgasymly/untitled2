@@ -25,7 +25,12 @@ public class MainRepository {
         UserRepository userRepository = new UsersRepositoryJdbcImpl(connection);
 
         List<User> users = userRepository.findAll();
+        int users1 = userRepository.insert();
+        List<User> users2 = userRepository.findAllWithCondition();
+
 
         users.forEach(user -> System.out.println(user.getName()));
+        users2.forEach(user -> System.out.println(user.getName()+" "+user.getSurname()+" "+user.getAge()));
+        System.out.println(users1);
     }
 }

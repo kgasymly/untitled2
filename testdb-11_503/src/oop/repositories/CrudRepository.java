@@ -8,9 +8,11 @@ import java.util.Optional;
 
 public interface CrudRepository<T> {
     List<User> findAll() throws SQLException;
+    List<User> findAllWithCondition() throws SQLException;
     Optional<T> findById(Long id);
     void save(T entity);
     void update(T entity);
     void remove(T entity);
     void removeById(Long id);
+    int insert() throws SQLException;
 }
